@@ -1,0 +1,134 @@
+#root.root {--tabs-activated-shadow: 0 1px 4px -2px rgba(0,0,0,0.5);}
+#root.root {--tabs-margin: 4px;}
+#root.root {--tabs-close-btn-margin: 6px;}
+#root.root {--general-border-radius: 12px;}
+#root.root {--toolbar-bg: transparent;}
+#root.root {--tabs-font: 0.8rem system-ui;}
+#root.root {--tabs-height: 32px;}
+#root.root {--tabs-indent: 16px;}
+
+/* region multiline titles */
+#root.root {
+  --tabs-title-padding: 6px;
+  --tabs-title-lines: 2;
+}
+
+.Tab .t-box {
+	max-height: calc(var(--tabs-height) - var(--tabs-title-padding));
+}
+
+/* TODO: fix clamping */
+.Tab[data-active="true"] .title {
+  white-space: pre-wrap;
+  line-height: calc((var(--tabs-height) - var(--tabs-title-padding)) / var(--tabs-title-lines));
+}
+/* endregion */
+
+/* Replace scroll shadows with borders */
+.ScrollBox > .top-shadow, .ScrollBox > .bottom-shadow {
+	border: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(220, 220, 220, 0.2));
+	box-shadow: none!important;
+	height: 13px;
+}
+
+/* Color layer as a dot over the favicon */
+#root.root {
+	--favicon-mask-border-width: 2px;
+	--color-circle-size: 10px;
+	--color-circle-center-x: 14px;
+	--color-circle-center-y: 2px;
+}
+.color-layer {
+  opacity: 1 !important;
+  box-shadow: none !important;
+	height: var(--color-circle-size)!important;
+	width: var(--color-circle-size)!important;
+	margin: calc(var(--tabs-height) / 2 - 8px - var(--color-circle-size) / 2 + var(--color-circle-center-y)) 0 0 calc(var(--tabs-inner-gap) + 2px - var(--color-circle-size) / 2 + var(--color-circle-center-x));
+	z-index: 21!important;
+	border-radius: 50%!important;
+}
+.Tab[data-colorized="true"] {
+	--tabs-activated-shadow: inherit!important;
+}
+.Tab[data-colorized="true"] .fav {
+	mask: radial-gradient(circle at var(--color-circle-center-x) var(--color-circle-center-y), rgba(0,0,0,0), rgba(0,0,0,0) calc(var(--color-circle-size) / 2 + var(--favicon-mask-border-width)), #000 calc(var(--color-circle-size) / 2 + var(--favicon-mask-border-width) + 0.1px), #000)
+}
+
+/* Color layer behind the favicon */
+/*.color-layer {
+	--margin: 4px;
+  box-shadow: none !important;
+	width: calc(var(--tabs-height) - 2 * var(--margin))!important;
+	height: calc(var(--tabs-height) - 2 * var(--margin))!important;
+	margin: var(--margin);
+	border-radius: calc(var(--tabs-border-radius) - var(--margin))!important;
+}
+.Tab[data-colorized="true"] {
+	--tabs-activated-shadow: inherit!important;
+}*/
+
+/* Color layer around the favicon */
+/*.color-layer {
+	--margin: 4px;
+  box-shadow: none !important;
+	width: calc(var(--tabs-height) - 2 * var(--margin))!important;
+	height: calc(var(--tabs-height) - 2 * var(--margin))!important;
+	margin: var(--margin);
+	border-radius: calc(var(--tabs-border-radius) - var(--margin))!important;
+	border: 2px solid var(--tab-color);
+	background: none!important;
+}
+.Tab[data-colorized="true"] {
+	--tabs-activated-shadow: inherit!important;
+}*/
+
+/* region side margin */
+#root.root {
+	--side-margin: 8px;
+}
+.AnimatedTabList {
+  margin: 0 calc(var(--side-margin) - var(--tabs-margin));
+}
+.panel, .BottomBar {
+	padding-bottom: var(--side-margin);
+}
+/* endregion */
+
+.new-tab-btns {
+	padding-top: var(--ntb-padding) !important;
+}
+
+/* Make close button radius consistent, animate hover */
+.Tab .close {
+	border-radius: calc(var(--tabs-border-radius) - var(--tabs-close-btn-margin));
+	transition: background-color var(--d-fast);
+}
+
+/* This breaks indent guides, use at your own risk */
+.Tab:active {
+	transform: scale(0.99);
+}
+
+/* Fix vertical align for tab title. Depends on the font, tweak for your liking */
+/*.Tab .t-box {
+	margin-bottom: -2px;
+}*/
+
+/* Tab favicon spacing */
+#root.root {
+  --tabs-inner-gap: calc((var(--tabs-height) - 16px) / 2 - 2px);
+}
+
+/* Discarded tabs styling. Do not make tab title pale */
+.Tab[data-discarded="true"] > .body > .t-box, .Tab[data-discarded="true"] > .body > .ctx {
+	opacity: 1;
+}
+
+.Tab .t-box {
+	margin-right: var(--tabs-inner-gap);
+}
+.Tab .title {
+	text-overflow: ellipsis;
+	letter-spacing: -0.3px;
+	font-weight: 420;
+}
