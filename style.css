@@ -9,8 +9,8 @@
 
 /* region multiline titles */
 #root.root {
-  --tabs-title-padding: 6px;
-  --tabs-title-lines: 2;
+	--tabs-title-padding: 6px;
+	--tabs-title-lines: 2;
 }
 
 .Tab .t-box {
@@ -19,8 +19,8 @@
 
 /* TODO: fix clamping */
 .Tab[data-active="true"] .title {
-  white-space: pre-wrap;
-  line-height: calc((var(--tabs-height) - var(--tabs-title-padding)) / var(--tabs-title-lines));
+	white-space: pre-wrap;
+	line-height: calc((var(--tabs-height) - var(--tabs-title-padding)) / var(--tabs-title-lines));
 }
 /* endregion */
 
@@ -39,8 +39,8 @@
 	--color-circle-center-y: 2px;
 }
 .color-layer {
-  opacity: 1 !important;
-  box-shadow: none !important;
+	opacity: 1 !important;
+	box-shadow: none !important;
 	height: var(--color-circle-size)!important;
 	width: var(--color-circle-size)!important;
 	margin: calc(var(--tabs-height) / 2 - 8px - var(--color-circle-size) / 2 + var(--color-circle-center-y)) 0 0 calc(var(--tabs-inner-gap) + 2px - var(--color-circle-size) / 2 + var(--color-circle-center-x));
@@ -57,7 +57,7 @@
 /* Color layer behind the favicon */
 /*.color-layer {
 	--margin: 4px;
-  box-shadow: none !important;
+	box-shadow: none !important;
 	width: calc(var(--tabs-height) - 2 * var(--margin))!important;
 	height: calc(var(--tabs-height) - 2 * var(--margin))!important;
 	margin: var(--margin);
@@ -70,7 +70,7 @@
 /* Color layer around the favicon */
 /*.color-layer {
 	--margin: 4px;
-  box-shadow: none !important;
+	box-shadow: none !important;
 	width: calc(var(--tabs-height) - 2 * var(--margin))!important;
 	height: calc(var(--tabs-height) - 2 * var(--margin))!important;
 	margin: var(--margin);
@@ -87,7 +87,7 @@
 	--side-margin: 8px;
 }
 .AnimatedTabList {
-  margin: 0 calc(var(--side-margin) - var(--tabs-margin));
+	margin: 0 calc(var(--side-margin) - var(--tabs-margin));
 }
 .panel, .BottomBar {
 	padding-bottom: var(--side-margin);
@@ -116,7 +116,7 @@
 
 /* Tab favicon spacing */
 #root.root {
-  --tabs-inner-gap: calc((var(--tabs-height) - 16px) / 2 - 2px);
+	--tabs-inner-gap: calc((var(--tabs-height) - 16px) / 2 - 2px);
 }
 
 /* Discarded tabs styling. Do not make tab title pale */
